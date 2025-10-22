@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScrapeSpoon — Data as a Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --brand:#FF4A00FF;   /* Updated brand color */
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#fff1e6;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--ink);
+      background: url('banner.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Sign in button */
+    .signin-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background-color: var(--brand);
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .signin-btn:hover {
+      background-color: #e54000; /* darker shade for hover */
+    }
+
+    main{width:min(1100px,92%); margin:36px auto; flex:1;}
+/*Background of About Scrapespoon section */
+    section.card{
+      background:var(--card);
+      border-radius:14px;
+      padding:28px;
+      margin-bottom:24px;
+      box-shadow:0 12px 30px rgba(2,8,20,.06);
+    }
+    section.card h2{
+      margin:0 0 10px 0;
+      color:var(--brand);
+      text-align:center;
+      font-size: clamp(20px, 1.6vw + 12px, 28px);
+    }
+    section.card p{margin:0; text-align:center; color:var(--muted)}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+      margin-top:18px;
+    }
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr}
+    }
+/*Background of Our Cases */
+    .tile{
+      background:#fafafa;
+      border-radius:12px;
+      padding:18px;
+      text-align:center;
+      box-shadow:0 4px 14px rgba(2,8,20,.04);
+    }
+    .tile h3{margin:8px 0 6px 0; font-size:18px}
+    .tile p{margin:0; color:var(--muted)}
+
+    /* Features list */
+    ul.features{
+      margin:12px auto 0 auto;
+      padding:0;
+      list-style:none;
+      max-width:720px;
+    }
+    ul.features li{
+      padding:10px 0;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      border-bottom:1px solid #eef2f7;
+    }
+    ul.features li:last-child{border-bottom:0}
+    .badge{color:#10b981}
+
+    /* Contact form */
+    .contact form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:8px;
+    }
+    .contact label{font-weight:600; font-size:14px}
+    .contact input, .contact textarea{
+      width:100%;
+      margin-top:6px;
+      padding:12px 12px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      font-size:14px;
+      background:#fff;
+    }
+    .contact textarea{grid-column:1 / -1; min-height:120px; resize:vertical}
+    .contact .full{grid-column:1 / -1}
+    .cta{
+      background:var(--brand);
+      color:#fff;
+      border:0;
+      padding:14px 18px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      transition: transform .08s ease, box-shadow .2s ease;
+      box-shadow:0 10px 18px rgba(255,102,0,.25);
+    }
+    .cta:hover{transform:translateY(-1px)}
+    .cta:active{transform:translateY(0)}
+
+    footer{
+      background:#0f172a;
+      color:#e2e8f0;
+      text-align:center;
+      padding:20px 12px;
+      margin-top:20px;
+    }
+    .social a{color:#e2e8f0; margin:0 8px; font-size:20px}
+    .social a:hover{color:var(--brand)}
+  </style>
+</head>
+
+<body>
+  
+<header style="background:#e96e00; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
+    <!-- Logo with same background as header -->
+    <div class="logo-wrapper" style="flex:0 0 auto; background:#e96e00; padding:5px; border-radius:8px;">
+        <video autoplay loop muted playsinline style="height: 80px; width: auto; display:block;">
+            <source src="logo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Title Text -->
+    <div style="flex: 1; text-align: center; color:white;">
+        <h1 style="margin: 0; font-size: 28px; font-weight: bold;">
+            High-Quality Proxies for E-Commerce & Food/Beverage Businesses
+        </h1>
+        <p style="margin: 5px 0 0; font-size: 16px;">
+            Data as a Service Provider • US • UK • India • France
+        </p>
+    </div>
+
+    <!-- Sign In Button -->
+    <div style="flex:0 0 auto;">
+      <a href="/login" class="signin-btn">Sign In</a>
+    </div>
+</header>
+
+
+<main>
+    <section class="card">
+      <h2>About ScrapeSpoon</h2>
+      <p>We deliver reliable proxy and data-as-a-service solutions purpose-built for
+      E-Commerce and Food & Beverage companies — fast, compliant, and scalable.</p>
+    </section>
+
+    <section class="card">
+      <h2>Our Use Cases</h2>
+      <div class="grid">
+        <div class="tile">
+          <h3>🛒 E-Commerce Monitoring</h3>
+          <p>Track pricing, stock, and reviews across marketplaces in near real-time.</p>
+        </div>
+        <div class="tile">
+          <h3>🍔 F&B Market Intelligence</h3>
+          <p>Collect menus, delivery fees, ratings, and promos to guide decisions.</p>
+        </div>
+        <div class="tile">
+          <h3>🌍 Global Research</h3>
+          <p>Consistent coverage across the US, UK, India, and France with geo-targeting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Why Choose Us</h2>
+      <ul class="features">
+        <li><span class="badge">✔</span> Rotating Residential & Datacenter Proxies</li>
+        <li><span class="badge">✔</span> 99.9% Uptime SLA with automated retries</li>
+        <li><span class="badge">✔</span> Country & city-level routing (US, UK, IN, FR)</li>
+        <li><span class="badge">✔</span> Scalable Data-as-a-Service APIs & custom feeds</li>
+      </ul>
+    </section>
+
+    <section class="card contact">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/xgvzqjgr" method="POST">
+        <div class="full">
+          <label>Your Name
+            <input type="text" name="name" required>
+          </label>
+        </div>
+        <div>
+          <label>Your Email
+            <input type="email" name="email" required>
+          </label>
+        </div>
+        <div>
+          <label>Project Details
+            <input type="text" name="project" placeholder="e.g., price monitoring for 500 SKUs" required>
+          </label>
+        </div>
+        <div class="full">
+          <label>Your Message
+            <textarea name="message" required></textarea>
+          </label>
+        </div>
+        <div class="full" style="display:flex; justify-content:center; margin-top:6px">
+          <button type="submit" class="cta">Send Message</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+
+  <footer>
+    <div>© 2025 ScrapeSpoon — All rights reserved.</div>
+    <div class="social" style="margin-top:8px">
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — ScrapeSpoon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #e96e00;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--ink);
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--brand);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+
+    .dashboard-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 700px;
+    }
+    .dashboard-card h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: var(--brand);
+    }
+    .dashboard-card p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .logout-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: var(--brand);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .logout-btn:hover {
+      background: #e34400;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      text-align: center;
+      padding: 20px 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Logo with same background as header -->
+    <div class="logo-wrapper" style="flex:0 0 auto; background:#e96e00; padding:5px; border-radius:8px;">
+        <video autoplay loop muted playsinline style="height: 80px; width: auto; display:block;">
+            <source src="logo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Title Text -->
+    <div style="flex: 1; text-align: center; color:white;">
+        <h1 style="margin: 0; font-size: 28px; font-weight: bold;">
+            ScrapeSpoon Dashboard
+        </h1>
+        <p style="margin: 5px 0 0; font-size: 16px;">
+            Manage your proxies and data services
+        </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="dashboard-card">
+      <h2>Welcome, {{ username }}!</h2>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>Account Status:</strong> Active</p>
+      <p><strong>Plan:</strong> Starter (Upgrade soon 🚀)</p>
+
+      <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 ScrapeSpoon — All rights reserved.
+  </footer>
+</body>
+</html>
+

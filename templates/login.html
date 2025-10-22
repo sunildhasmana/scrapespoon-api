@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — ScrapeSpoon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #e96e00;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--ink);
+      background: url('banner.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--brand);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .login-card h2 {
+      margin-bottom: 20px;
+      color: var(--brand);
+    }
+    .login-card label {
+      display: block;
+      text-align: left;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .login-card input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .login-btn {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .login-btn:hover {
+      background: #e34400;
+    }
+
+    .register-link {
+      margin-top: 15px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .register-link a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+
+    .flash-messages {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .flash-messages li {
+      list-style: none;
+      color: red;
+      font-weight: 600;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      text-align: center;
+      padding: 20px 12px;
+    }
+  </style>
+</head>
+<body>
+  <header style="background:#e96e00; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
+    <!-- Logo with same background as header -->
+    <div class="logo-wrapper" style="flex:0 0 auto; background:#e96e00; padding:5px; border-radius:8px;">
+        <video autoplay loop muted playsinline style="height: 80px; width: auto; display:block;">
+            <source src="logo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Title Text -->
+    <div style="flex: 1; text-align: center; color:white;">
+        <h1 style="margin: 0; font-size: 28px; font-weight: bold;">
+            High-Quality Proxies for E-Commerce & Food/Beverage Businesses
+        </h1>
+        <p style="margin: 5px 0 0; font-size: 16px;">
+            Data as a Service Provider • US • UK • India • France
+        </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="login-card">
+      <h2>Sign In</h2>
+
+      <!-- Flash messages from Flask -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <!-- Login Form -->
+      <form action="{{ url_for('auth.login') }}" method="POST">
+        <label>Email</label>
+        <input type="text" name="username" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit" class="login-btn">Sign In</button>
+      </form>
+
+      <!-- Register Link -->
+      <div class="register-link">
+        Don’t have an account?
+        <a href="{{ url_for('auth.register') }}">Register here</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 ScrapeSpoon — All rights reserved.
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+/* Background */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('/static/bg.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+/* Header */
+.header {
+    background: rgba(255, 165, 0, 0.9); /* orange header only */
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.header .logo {
+    height: 50px;
+    margin-right: 15px;
+}
+.header-text h1 {
+    margin: 0;
+    font-size: 20px;
+}
+.header-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+}
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar li {
+    margin-right: 20px;
+}
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Content area */
+.content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Dashboard card */
+.dashboard-card {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 12px;
+}
+
