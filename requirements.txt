@@ -26,3 +26,8 @@ typing_extensions==4.14.1
 urllib3==2.5.0
 uvicorn==0.35.0
 gunicorn==21.2.0
+Flask
+Flask-Cors
+gunicorn
+requests
+pymongo
